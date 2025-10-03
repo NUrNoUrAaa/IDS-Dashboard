@@ -1,0 +1,31 @@
+<div class="models-page">
+    <h2 class="page-title">Available Models</h2>
+
+    <div class="models-grid">
+        <div class="model-card animate-fade-in" *ngFor="let model of models; let i = index" [style.animationDelay]="(i * 120) + 'ms'">
+
+            <div class="model-header">
+                <i class="pi pi-database model-icon"></i>
+                <h3>{{model.name}}</h3>
+            </div>
+
+            <p class="model-desc">{{model.description}}</p>
+
+            <div class="chart-container">
+                <canvas baseChart [data]="getChartData(model)" [options]="chartOptions" [type]="'bar'">
+        </canvas>
+            </div>
+
+            <div class="actions">
+                <button class="btn-primary" (click)="setAsPreferred(model)">Set as Preferred</button>
+                <button class="btn-outline" (click)="showDetails(model)">Details</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ✅ مكان عرض التفاصيل -->
+    <div *ngIf="selectedModelForDetails" class="details-modal">
+        <app-model-details [model]="selectedModelForDetails"></app-model-details>
+        <button class="close-btn" (click)="selectedModelForDetails = null">Close</button>
+    </div>
+</div>

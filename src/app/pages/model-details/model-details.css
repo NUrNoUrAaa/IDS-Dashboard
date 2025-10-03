@@ -1,0 +1,21 @@
+.details-container {
+    padding: 1.5rem;
+    background: var(--card-bg, #fff);
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    color: var(--text-color, #111);
+}
+
+.chart-wrapper {
+    height: 300px;
+    margin: 1rem 0;
+}
+
+.stats {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+.stats p {
+    margin: 0.5rem 0;
+}

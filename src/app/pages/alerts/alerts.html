@@ -1,0 +1,21 @@
+<div class="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow">
+    <h2 class="text-lg font-semibold mb-4">All Alerts</h2>
+    <table class="w-full text-left">
+        <thead class="text-sm text-gray-500">
+            <tr>
+                <th class="p-2">Time</th>
+                <th class="p-2">Type</th>
+                <th class="p-2">Source</th>
+                <th class="p-2">Severity</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let a of alerts" class="border-t border-gray-100 dark:border-gray-700">
+                <td class="p-2">{{a.time}}</td>
+                <td class="p-2">{{a.type}}</td>
+                <td class="p-2">{{a.src}}</td>
+                <td class="p-2">{{a.severity}}</td>
+            </tr>
+        </tbody>
+    </table>
+</div>

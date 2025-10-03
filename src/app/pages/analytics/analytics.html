@@ -1,0 +1,68 @@
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-6">
+    <!-- Left: KPIs + recent alerts -->
+    <div class="lg:col-span-2 space-y-6">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="card">
+                <h3>Total Traffic</h3>
+                <p class="value text-cyberBlue">{{overview?.totalTraffic}}</p>
+            </div>
+            <div class="card">
+                <h3>Detected Attacks</h3>
+                <p class="value text-red-500">{{overview?.detected}}</p>
+            </div>
+            <div class="card">
+                <h3>Accuracy</h3>
+                <p class="value text-green-500">{{overview?.accuracy}}%</p>
+            </div>
+            <div class="card">
+                <h3>Active Alerts</h3>
+                <p class="value text-yellow-500">{{overview?.activeAlerts}}</p>
+            </div>
+        </div>
+
+        <div class="card">
+            <apx-chart *ngIf="trafficChartOptions.series" [series]="trafficChartOptions.series" [chart]="trafficChartOptions.chart" [xaxis]="trafficChartOptions.xaxis" [stroke]="trafficChartOptions.stroke" [tooltip]="trafficChartOptions.tooltip">
+            </apx-chart>
+        </div>
+
+        <div class="card">
+            <h4 class="font-semibold mb-3">Recent Alerts</h4>
+            <table class="w-full text-left">
+                <thead class="text-sm text-gray-500">
+                    <tr>
+                        <th class="p-2">Time</th>
+                        <th class="p-2">Type</th>
+                        <th class="p-2">Source</th>
+                        <th class="p-2">Severity</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let a of recentAlerts" class="border-t border-gray-100 dark:border-gray-700">
+                        <td class="p-2 text-sm">{{a.time}}</td>
+                        <td class="p-2">{{a.type}}</td>
+                        <td class="p-2">{{a.src}}</td>
+                        <td class="p-2">{{a.severity}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Right -->
+    <div class="space-y-6">
+        <div class="card">
+            <apx-chart *ngIf="donutOptions.series" [series]="donutOptions.series" [chart]="donutOptions.chart" [labels]="donutOptions.labels" [legend]="donutOptions.legend">
+            </apx-chart>
+        </div>
+
+        <div class="card">
+            <h4 class="font-semibold mb-2">Model Summary</h4>
+            <div class="text-sm text-gray-500">Current: RandomForest</div>
+            <div class="mt-3 grid grid-cols-3 gap-2">
+                <div class="metric">Acc<br/><strong>97%</strong></div>
+                <div class="metric">Precision<br/><strong>96%</strong></div>
+                <div class="metric">Recall<br/><strong>95%</strong></div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,15 @@
+<div class="details-container" *ngIf="model">
+    <h2>{{model.name}} - Details</h2>
+    <p>{{model.description}}</p>
+
+    <div class="chart-wrapper">
+        <canvas baseChart [data]="getChartData()" [options]="chartOptions" [type]="'radar'">
+    </canvas>
+    </div>
+
+    <div class="stats">
+        <p><strong>Accuracy:</strong> {{model.accuracy}}%</p>
+        <p><strong>Precision:</strong> {{model.precision}}%</p>
+        <p><strong>Recall:</strong> {{model.recall}}%</p>
+    </div>
+</div>

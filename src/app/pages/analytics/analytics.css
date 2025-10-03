@@ -1,0 +1,15 @@
+.card {
+    @apply p-6 rounded-2xl bg-white dark: bg-gray-800 shadow;
+}
+
+.card h3 {
+    @apply text-sm text-gray-500 dark: text-gray-300;
+}
+
+.card .value {
+    @apply text-2xl font-bold;
+}
+
+.metric {
+    @apply p-2 bg-gray-50 dark: bg-gray-700 rounded text-center text-sm;
+}
