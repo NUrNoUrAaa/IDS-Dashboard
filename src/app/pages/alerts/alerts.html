@@ -1,7 +1,9 @@
 <div class="p-6 bg-white dark:bg-gray-800 rounded-2xl shadow">
-    <h2 class="text-lg font-semibold mb-4">All Alerts</h2>
+    <h2 class="text-lg font-semibold mb-4 text-gray-800 dark:text-white">All Alerts</h2>
+
     <table class="w-full text-left">
-        <thead class="text-sm text-gray-500">
+        <!-- Table Header -->
+        <thead class="text-sm text-gray-600 dark:text-gray-300">
             <tr>
                 <th class="p-2">Time</th>
                 <th class="p-2">Type</th>
@@ -9,12 +11,22 @@
                 <th class="p-2">Severity</th>
             </tr>
         </thead>
+
+        <!-- Table Body -->
         <tbody>
-            <tr *ngFor="let a of alerts" class="border-t border-gray-100 dark:border-gray-700">
-                <td class="p-2">{{a.time}}</td>
-                <td class="p-2">{{a.type}}</td>
-                <td class="p-2">{{a.src}}</td>
-                <td class="p-2">{{a.severity}}</td>
+            <tr *ngFor="let a of alerts" class="border-t border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 transition">
+
+                <td class="p-2 text-sm text-gray-700 dark:text-gray-200">{{a.time}}</td>
+                <td class="p-2 text-gray-800 dark:text-white">{{a.type}}</td>
+                <td class="p-2 text-gray-800 dark:text-white">{{a.src}}</td>
+
+                <td class="p-2 font-medium" [ngClass]="{
+              'text-red-500': a.severity === 'High',
+              'text-yellow-500': a.severity === 'Medium',
+              'text-green-500': a.severity === 'Low'
+            }">
+                    {{a.severity}}
+                </td>
             </tr>
         </tbody>
     </table>

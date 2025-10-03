@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgChartsModule } from 'ng2-charts';
-import { RouterOutlet } from '@angular/router';
 import { ModelDetailsComponent } from '../model-details/model-details';
 
 @Component({
   selector: 'app-models',
-  imports: [CommonModule, NgChartsModule ,ModelDetailsComponent, RouterOutlet],
+  imports: [CommonModule, NgChartsModule ,ModelDetailsComponent],
   templateUrl: './models.html',
   styleUrls: ['./models.css']
 })
@@ -41,7 +40,7 @@ export class Models  {
     maintainAspectRatio: false,
     plugins: { legend: { display: false } },
     scales: { y: { beginAtZero: true, max: 100 } }
- 
+
   };
 
 

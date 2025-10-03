@@ -38,16 +38,37 @@ export class Dashboard implements OnInit {
 
   constructor(private ds: DataService) {}
 
+
+
   ngOnInit() {
+//dark mode detection
+   this.applyTheme();
+
+    const observer = new MutationObserver(() => {
+      this.applyTheme();
+    });
+
+    observer.observe(document.documentElement, {
+      attributes: true,
+      attributeFilter: ['class']
+    });
+  }
+
+  applyTheme() {
+    const isDark = document.documentElement.classList.contains('dark');
+
+
     this.ds.getOverview().subscribe(o => this.overview = o);
     this.ds.getTimeSeries().subscribe(ts => {
       this.timeseries = ts;
+        const isDark = document.documentElement.classList.contains('dark');
+
       this.trafficChartOptions = {
         series: [{ name: 'Traffic', data: ts.series }],
         chart: { type: 'line', height: 320, toolbar: { show: false } },
         xaxis: { categories: ts.categories },
         stroke: { curve: 'smooth', width: 3 },
-        tooltip: { theme: 'dark' }
+      tooltip: { theme: isDark ? 'dark' : 'light' }
       };
     });
     this.ds.getAttackTypes().subscribe(a => {
