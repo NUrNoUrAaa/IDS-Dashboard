@@ -20,7 +20,6 @@ export class ModelDetailsComponent {
     scales: { r: { beginAtZero: true, max: 100 } }
   };
 
-  // ✅ نخليها دايمًا ترجع ChartData valid
   getChartData(): ChartData<'radar', number[], string> {
     if (!this.model) {
       return {

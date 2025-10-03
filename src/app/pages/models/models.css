@@ -19,9 +19,6 @@
     gap: 1.5rem;
 }
 
-
-/* Card */
-
 .model-card {
     background: #ffffff;
     border-radius: 1rem;
@@ -40,9 +37,6 @@
     color: #f3f4f6;
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.25);
 }
-
-
-/* Header */
 
 .model-header {
     display: flex;
@@ -68,15 +62,9 @@
     color: #d1d5db;
 }
 
-
-/* Chart container */
-
 .chart-container {
     height: 150px;
 }
-
-
-/* Actions */
 
 .actions {
     display: flex;
@@ -123,9 +111,6 @@
 :host-context(.dark) .btn-outline:hover {
     background: #374151;
 }
-
-
-/* Animations */
 
 @keyframes fade-in-up {
     to {

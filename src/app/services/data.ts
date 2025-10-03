@@ -1,42 +1,38 @@
-// src/app/services/data.ts
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 
-// نماذج البيانات (interfaces)
 export interface Overview {
-  totalTraffic: string;   // إجمالي الترافيك
-  detected: number;       // الهجمات المكتشفة
-  accuracy: number;       // دقة النموذج %
-  activeAlerts: number;   // التنبيهات النشطة
+  totalTraffic: string;
+  detected: number;
+  accuracy: number;
+  activeAlerts: number;
 }
 
 export interface TimeSeries {
-  categories: string[];   // الفترات الزمنية
-  series: number[];       // القيم المقابلة
+  categories: string[];
+  series: number[];
 }
 
 export interface AttackTypes {
-  labels: string[];       // أسماء الهجمات
-  values: number[];       // القيم لكل نوع
+  labels: string[];
+  values: number[];
 }
 
 export interface AlertItem {
-  time: string;           // توقيت التنبيه
-  type: string;           // نوع الهجوم
-  src: string;            // مصدر الهجوم (IP)
-  severity: string;       // مستوى الخطورة
+  time: string;
+  type: string;
+  src: string;
+  severity: string;
 }
 
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
-  // لما يوصل الـ backend غيريها بالـ API الحقيقي
   private baseUrl = '/api';
 
-  // بيانات افتراضية (Mock Data) — لحد ما نربط الموديل
   private mockOverview: Overview = {
     totalTraffic: '120,000',
     detected: 5340,
@@ -62,7 +58,6 @@ export class DataService {
 
   constructor(private http: HttpClient) {}
 
-  // API Endpoints + Mock fallback
 
   getOverview(): Observable<Overview> {
     return this.http.get<Overview>(`${this.baseUrl}/overview`).pipe(

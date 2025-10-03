@@ -1,20 +1,10 @@
-/* PrimeNG v20+ no longer exposes CSS under primeng/resources.
-    If you need a PrimeNG theme, add a compatible theme package or use Prime UI packages.
-    For now include only primeicons (which is available) and use Tailwind for styling. */
-
 @import "primeicons/primeicons.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
-/* Global animations / helpers */
-
 :root {
     --transition-fast: 180ms;
 }
-
-
-/* Fade-down for navbar */
 
 @keyframes fade-in-down {
     from {
@@ -31,9 +21,6 @@
     animation: fade-in-down 360ms ease-out;
 }
 
-
-/* Slow logo bounce */
-
 @keyframes bounce-slow {
     0%,
     100% {
@@ -48,15 +35,9 @@
     animation: bounce-slow 2s infinite;
 }
 
-
-/* small transition default */
-
 * {
     transition: all var(--transition-fast) ease;
 }
-
-
-/* optional: ensure body background smooth transition */
 
 html,
 body {

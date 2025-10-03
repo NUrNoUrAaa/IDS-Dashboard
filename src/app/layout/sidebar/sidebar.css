@@ -13,9 +13,6 @@
     z-index: 40;
 }
 
-
-/* Logo is intentionally hidden in sidebar (logo is shown in navbar) */
-
 .logo {
     display: none;
 }
@@ -34,7 +31,6 @@
     padding: 0.5rem 1rem;
     border-radius: 0.5rem;
     color: #4B5563;
-    /* gray-600 */
     text-decoration: none;
     transition: all 180ms ease;
 }
@@ -54,9 +50,6 @@
     font-size: 1.125rem;
 }
 
-
-/* closed state (hidden off-canvas) */
-
 .sidebar-closed {
     transform: translateX(-100%);
     opacity: 0;
@@ -69,18 +62,12 @@
     pointer-events: auto;
 }
 
-
-/* mobile overlay */
-
 .sidebar-overlay {
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.45);
     z-index: 30;
 }
-
-
-/* dark mode */
 
 .host-dark .sidebar {}
 
@@ -97,9 +84,6 @@
     background: linear-gradient(90deg, #6D28D9, #06B6D4);
     color: #fff;
 }
-
-
-/* responsive: show sidebar by default on large screens */
 
 @media (min-width: 1024px) {
     .sidebar {

@@ -23,7 +23,6 @@
         </div>
     </div>
 
-    <!-- ✅ مكان عرض التفاصيل -->
     <div *ngIf="selectedModelForDetails" class="details-modal">
         <app-model-details [model]="selectedModelForDetails"></app-model-details>
         <button class="close-btn" (click)="selectedModelForDetails = null">Close</button>

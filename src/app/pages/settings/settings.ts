@@ -13,14 +13,13 @@ export class Settings {
   // Theme toggle
   darkMode: boolean = false;
 
-  // Notifications toggle
+
   notificationsEnabled: boolean = true;
 
-  // Model options
+
   models = ['RandomForest', 'XGBoost', 'Deep Neural Network'];
   selectedModel: string = this.models[0];
 
-  // Account info (دي مفترض هتيجي من الباك اند)
   account = {
     username: 'cyber_admin',
     email: 'admin@cyber-ids.com'
